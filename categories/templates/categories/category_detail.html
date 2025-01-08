@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category.name }}</title>
+</head>
+<body>
+    <h1>{{ category.name }}</h1>
+    <p>{{ category.description }}</p>
+
+    {% if subcategories %}
+        <h2>Subcategories:</h2>
+        <ul>
+            {% for subcategory in subcategories %}
+                <li>
+                    <a href="{% url 'category_detail' subcategory.slug %}">{{ subcategory.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
